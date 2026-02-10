@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AmpliQ - The biggest purpose-driven ecosystem in Africa helping freelancers and creatives build sustainable tech careers with community, guided learning, and business structures."
+    />
+    <meta
+      name="keywords"
+      content="freelance, freelancer, ecosystem, Africa, tech careers, business systems, community, learning platform, freelance jobs, creative careers"
+    />
+    <meta name="author" content="AmpliQ" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="AmpliQ | Build Your Freelance Career with Structure"
+    />
+    <meta
+      property="og:description"
+      content="Join the biggest purpose-driven ecosystem helping freelancers and creatives grow with community, guided learning, and business systems."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ampliqhq.com" />
+    <meta property="og:image" content="./Assets/images/Asset 1.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="AmpliQ | Build Your Freelance Career with Structure"
+    />
+    <meta
+      name="twitter:description"
+      content="Join the biggest purpose-driven ecosystem helping freelancers and creatives grow with community, guided learning, and business systems."
+    />
+    <meta name="twitter:image" content="./Assets/images/Asset 1.png" />
+    <meta name="theme-color" content="#9F01F1" />
+    <link rel="canonical" href="https://ampliqhq.com" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./android-chrome-192x192.png"
+    />
+    <title>
+      AmpliQ | Build Your Freelance Career with Structure - Freelancer Ecosystem
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+    .marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+      </style>
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AmpliQ",
+        "description": "Purpose-driven ecosystem empowering freelancers and creatives to build sustainable tech careers through community, learning, and systems.",
+        "url": "https://ampliqhq.com",
+        "logo": "./Assets/images/Asset 1.png",
+        "sameAs": [
+          "https://www.instagram.com/ampliq.hq?igsh=MWZoZXJmbHp3bGk3Mw%3D%3D&utm_source=qr",
+          "https://www.linkedin.com/company/ampliqhq/",
+          "https://x.com/ampliqhq?s=21"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Support",
+          "email": "support@ampliq.com"
+        }
+      }
+    </script>
+  </head>
+  <body class="body-gradient">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav">
+      <div
+        class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+      >
+        <div class="flex items-center gap-2">
+          <img
+            src="./Assets/images/Asset 1.png"
+            alt="AmpliQ Logo"
+            class="h-8 w-auto"
+          />
+        </div>
+
+        <div
+          class="hidden md:flex items-center gap-10 text-sm font-medium text-slate-400"
+        >
+          <a href="#about" class="hover:text-white transition-colors">About</a>
+          <a href="#ecosystem" class="hover:text-white transition-colors"
+            >Ecosystem</a
+          >
+          <!-- <a href="#waitlist" class="hover:text-white transition-colors"
+            >Waitlist</a
+          > -->
+        </div>
+
+        <div class="hidden md:block">
+          <a
+            href="#waitlist"
+            class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all purple-glow"
+          >
+            Join the Waitlist
+          </a>
+        </div>
+
+        <!-- Hamburger Menu Button -->
+        <button
+          id="hamburger-btn"
+          class="md:hidden flex flex-col gap-1.5 cursor-pointer"
+          aria-label="Toggle menu"
+        >
+          <span class="hamburger-line w-6 h-0.5 bg-white transition-all"></span>
+          <span class="hamburger-line w-6 h-0.5 bg-white transition-all"></span>
+          <span class="hamburger-line w-6 h-0.5 bg-white transition-all"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden fixed top-20 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-b border-slate-900 mobile-menu"
+      >
+        <div class="px-6 py-6 space-y-4">
+          <a
+            href="#about"
+            class="block text-slate-300 hover:text-white transition-colors py-2 text-sm font-medium"
+          >
+            About
+          </a>
+          <a
+            href="#ecosystem"
+            class="block text-slate-300 hover:text-white transition-colors py-2 text-sm font-medium"
+          >
+            Ecosystem
+          </a>
+          
+          <a
+            href="#waitlist"
+            class="block w-full px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full text-sm font-semibold transition-all purple-glow text-center mt-4"
+          >
+            Join the Waitlist
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative pt-40 pb-16 px-6 hero-gradient overflow-hidden">
+      <div class="max-w-4xl mx-auto relative z-10">
+        <div class="text-center">
+          <div
+            class="inline-flex items-center gap-2 bg-indigo-950/50 border border-indigo-500/30 px-4 py-1.5 rounded-full text-xs font-semibold text-indigo-300 mb-8 reveal"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"
+              ></span>
+            </span>
+            BETA ACCESS NOW OPEN
+          </div>
+
+          <h1
+            class="text-4xl md:text-7xl font-extrabold tracking-tight mb-8 reveal"
+          >
+            Stop Freelancing Blindly,<br />
+            <span class="text-[var(--brand-accent)]"
+              >Start Building with Structure.</span
+            >
+          </h1>
+
+          <p
+            class="text-xl text-slate-400 mb-12 max-w-2xl mx-auto reveal leading-relaxed"
+            style="transition-delay: 0.2s"
+          >
+            AmpliQ is the biggest purpose-driven ecosystem in Africa and
+            beyond helping freelancers and creatives grow with community,
+            guided learning, and business systems.
+          </p>
+
+          <div
+            class="flex flex-col md:flex-row items-center justify-center gap-4 mb-12 reveal"
+            style="transition-delay: 0.4s"
+          >
+            <a
+              href="#waitlist"
+              class="w-full md:w-auto px-10 py-4 bg-white text-black font-bold rounded-xl hover:bg-indigo-500 hover:text-white transition-all text-lg"
+            >
+              Join the Waitlist
+            </a>
+            <a
+              href="#ecosystem"
+              class="w-full md:w-auto px-10 py-4 bg-slate-900 text-white border border-slate-700 font-bold rounded-xl hover:bg-slate-800 transition-all text-lg"
+            >
+              Learn more
+            </a>
+          </div>
+
+          <!-- <div
+            class="italic text-slate-500 reveal"
+            style="transition-delay: 0.6s"
+          >
+            "Most freelancers know how to do the work, AmpliQ helps you build
+            a career."
+          </div> -->
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logo Marquee -->
+    <section class="py-6 border-y border-slate-900 bg-black/40" class="body-gradient">
+      <div class="marquee-container">
+        <div class="marquee-content flex items-center gap-20 opacity-50">
+          
+          <img
+          src="./Assets/images/Ampliq  copy (1).png"
+          alt="AmpliQ Logo"
+          class="h-10 w-auto"
+        />
+        
+        <img
+          src="./Assets/images/Ampliq_.png"
+          alt="AmpliQ Logo"
+          class="h-10 w-auto"
+        />
+
+        <img
+          src="./Assets/images/Ampliq_ vault.png"
+          alt="AmpliQ vault"
+          class="h-10 w-auto"
+        />
+        <!-- Duplicate for seamless loop -->
+          <img
+          src="./Assets/images/Ampliq  copy (1).png"
+          alt="AmpliQ Logo"
+          class="h-10 w-auto"
+        />
+        
+        <img
+          src="./Assets/images/Ampliq_.png"
+          alt="AmpliQ Logo"
+          class="h-10 w-auto"
+        />
+
+        <img
+          src="./Assets/images/Ampliq_ vault.png"
+          alt="AmpliQ vault"
+          class="h-10 w-auto"
+        />
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Scope -->
+    <section id="ecosystem" class="py-32 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-5 reveal">
+              Everything You Need to Build a
+              <span class="text-[var(--brand-accent)]">Sustainable</span> Freelance Career
+            </h2>
+            <p class="text-slate-400 text-lg leading-relaxed reveal">
+              From learning the right skills to managing clients and running
+              your freelance work professionally, AmpliQ brings education,
+              community, and systems together.
+            </p>
+          </div>
+          <!-- Ecosystem Image - Mobile Only -->
+          <div class="flex md:hidden justify-center items-center reveal">
+            <img
+              src="./Assets/images/Artboard_7_copy.png"
+              alt="AmpliQ Features"
+              class="w-full max-w-md h-auto object-cover rounded-2xl"
+            />
+          </div>
+          <!-- Desktop Image -->
+          <div class="hidden md:flex justify-center items-center reveal">
+            <img
+              src="./Assets/images/Artboard_7_copy.png"
+              alt="AmpliQ Ecosystem"
+              class="w-full max-w-md h-auto object-cover rounded-2xl shadow-2xl"
+            />
+          </div>
+        </div>
+
+        <!-- Bento Grid Features -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Large Feature -->
+          <div class="md:col-span-2 feature-card rounded-3xl p-10 reveal">
+            <div
+              class="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-indigo-400 mb-8"
+            >
+              <i class="fa-solid fa-users-viewfinder text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Community & Accountability</h3>
+            <p class="text-slate-400 mb-4 font-semibold text-indigo-400">
+              AmpliQ Meet
+            </p>
+            <p class="text-slate-500 leading-relaxed">
+              Connect with like-minded freelancers, join events, stay
+              accountable, and grow with people who understand your journey.
+            </p>
+          </div>
+
+          <div class="feature-card rounded-3xl p-10 reveal">
+            <div
+              class="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-indigo-400 mb-8"
+            >
+              <i class="fa-solid fa-graduation-cap text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Structured Paths</h3>
+            <p class="text-slate-400 mb-4 font-semibold text-indigo-400">
+              AmpliQ Learn
+            </p>
+            <p class="text-slate-500">
+              Access curated tech and design courses arranged from beginner to
+              advanced.
+            </p>
+          </div>
+
+          <div class="feature-card rounded-3xl p-10 reveal">
+            <div
+              class="w-14 h-14 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-indigo-400 mb-8"
+            >
+              <i class="fa-solid fa-file-invoice-dollar text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">The Vault</h3>
+            <p class="text-slate-400 mb-4 font-semibold text-indigo-400">
+              AmpliQ Vault
+            </p>
+            <p class="text-slate-500">
+              Create confident pitches and winning proposals using ready-made,
+              customizable templates.
+            </p>
+          </div>
+
+          <div class="md:col-span-2 feature-card rounded-3xl p-10 reveal">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-2xl font-bold mb-4">Unified Ecosystem</h3>
+                <p class="text-slate-500 leading-relaxed">
+                  No scattered tools. No random platforms. AmpliQ brings
+                  learning, systems, and community together seamlessly in one
+                  clean dashboard.
+                </p>
+              </div>
+              <div
+                class="bg-indigo-600/10 border border-indigo-500/20 p-6 rounded-2xl"
+              >
+                <ul class="space-y-3 text-sm">
+                  <li class="flex items-center gap-2">
+                    <i class="fa-solid fa-check text-indigo-500"></i> Client
+                    Management
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="fa-solid fa-check text-indigo-500"></i> Invoice
+                    Generation
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="fa-solid fa-check text-indigo-500"></i> Project
+                    Dashboard
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section id="waitlist" class="pb-16 px-6">
+      <div
+        class="max-w-5xl mx-auto waitlist-card rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden"
+      >
+        <h2
+          class="text-2xl md:text-6xl font-extrabold mb-8 reveal relative z-10"
+        >
+          Be Part of the Next Generation of <br />
+          <span class="text-[var(--brand-sub-blue)]">Structured Freelancers</span>
+        </h2>
+        <p
+          class="text-slate-400 text-lg mb-12 max-w-2xl mx-auto reveal relative z-10"
+        >
+          Be among the first to access AmpliQ when we launch. Get early access
+          to the community and free resources from the Vault.
+        </p>
+
+        <form
+          id="my-form"
+          action="https://formspree.io/f/mykgqqvw"
+          method="POST"
+          class="max-w-md mx-auto relative z-10"
+        >
+          <div class="grid md:grid-cols-2 gap-4 mb-8">
+            <div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
+                placeholder="Email Address"
+              />
+            </div>
+
+            <div>
+              <input
+                id="text"
+                name="name"
+                type="text"
+                required
+                class="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
+                placeholder="Your Name"
+              />
+            </div>
+          </div>
+
+          <button
+            id="my-form-button"
+            type="submit"
+            class="w-full px-8 py-4 bg-[var(--brand-sub-blue)] hover:bg-[var(--brand-sub-blue)]-800 text-white font-bold rounded-xl transition-all text-lg purple-glow reveal"
+          >
+            Join the Waitlist
+          </button>
+
+          <p
+            id="my-form-status"
+            class="mt-6 text-center text-slate-400 text-sm"
+          ></p>
+        </form>
+
+        <div
+          class="mt-8 flex flex-wrap justify-center gap-6 text-xs text-slate-500 reveal"
+        >
+          <span class="flex items-center gap-2"
+            ><i class="fa-solid fa-circle-check text-indigo-500"></i> Early
+            Community Access</span
+          >
+          <span class="flex items-center gap-2"
+            ><i class="fa-solid fa-circle-check text-indigo-500"></i> Free Vault
+            Resources</span
+          >
+          <span class="flex items-center gap-2"
+            ><i class="fa-solid fa-circle-check text-indigo-500"></i> Weekly
+            Newsletter</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-20 px-6 border-t border-slate-900 bg-black/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-12 mb-16">
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-2 mb-6">
+              <img
+                src="./Assets/images/Asset 1.png"
+                alt="AmpliQ Logo"
+                class="h-12 w-auto"
+              />
+            </div>
+            <p class="text-slate-500 max-w-sm leading-relaxed">
+              Purpose-driven ecosystem empowering freelancers and creatives to
+              build sustainable tech careers through community, learning, and
+              systems.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-6">Quick Links</h4>
+            <ul class="space-y-4 text-slate-500 text-sm">
+              <li>
+                <a href="./index.html#waitlist" class="hover:text-white"
+                  >Join the Waitlist</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-6">Socials</h4>
+            <div class="flex gap-4 text-xl text-slate-500">
+              <a href="https://www.instagram.com/ampliq.hq?igsh=MWZoZXJmbHp3bGk3Mw%3D%3D&utm_source=qr" class="hover:text-indigo-500"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="https://www.linkedin.com/company/ampliqhq/" class="hover:text-indigo-500"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="https://x.com/ampliqhq?s=21" class="hover:text-indigo-500"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-900 text-sm text-slate-600"
+        >
+          <p>&copy; 2026 AmpliQ. All rights reserved.</p>
+          <!-- <p class="mt-4 md:mt-0 italic">
+            Built for freelancers. Designed for growth.
+          </p> -->
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
