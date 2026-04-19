@@ -5,6 +5,7 @@
   --brand-dark: #0f172a;
   --brand-accent: #c084fc; */
   --brand-purple: #9f01f1;
+  --brand-purple2: #7703b1;
   --brand-dark: #360255;
   --brand-accent: #f3c7fd;
   --brand-sub-orange: #ff9810;
@@ -14,7 +15,7 @@
 
 body {
   font-family: "Host Grotesk"	, sans-serif;
-  background-color: #020617;
+  background-color: #360255;
   color: #f8fafc;
   overflow-x: hidden;
 }
@@ -82,7 +83,8 @@ body {
 }
 
 .waitlist-card {
-  background: linear-gradient(135deg, #1e1b4b 0%, #020617 100%);
+  /* background-color: #360255; */
+  background: linear-gradient(to bottom right, var(--brand-purple2), var(--brand-dark));
   border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
