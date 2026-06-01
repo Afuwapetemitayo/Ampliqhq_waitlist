@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AmpliQ - Waitlist</title>
+  <title>Ampliqhq - Waitlist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
@@ -1085,9 +1085,7 @@
           /* 4. Update progress bar then show inline thank-you card */
           document.getElementById('progress-fill').style.width = '100%';
           document.getElementById('progress-pct').textContent = '100%';
-          document.getElementById('form-stack').style.display = 'none';
-          document.getElementById('success-card').classList.add('show');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.location.href = 'https://www.ampliqhq.com/thank-you.html';
         } else {
           throw new Error(json.message || 'Submission failed');
         }
