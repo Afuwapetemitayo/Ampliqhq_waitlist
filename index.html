@@ -56,12 +56,32 @@
 
 
 
+      
+      
+      .marquee-container {
+        overflow: hidden;
+        white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 .testimonial-wrap {
       overflow: hidden;
       margin-top: 60px;
       position: relative;
-      -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
-              mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+      -webkit-mask-image: linear-gradient(90deg,  #000000, #000000);
+              mask-image: linear-gradient(90deg,  #000000, #000000);
     }
     .testimonial-track {
       display: flex;
@@ -149,26 +169,6 @@
       flex-shrink: 0;
     }
     .t-connect:hover { background: var(--neon); color: #fff; border-color: var(--neon); }
-
-    
-    .marquee-container {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.marquee-content {
-  display: flex;
-  animation: marquee 8s linear infinite;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
       </style>
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -543,9 +543,9 @@
 
     <!-- Testimonial Section -->
     <section id="testimonials" class="pb-16 px-6">
-      <div class="section-tag">05 · What Others Say</div>
+      <!-- <div class="section-tag">05 · What Others Say</div>
       <h2 class="section-title">From mentees who've <em>installed the system.</em></h2>
-      <p class="section-lead">Voices from current community members, layer masters, and mentees.</p>
+      <p class="section-lead">Voices from current community members, layer masters, and mentees.</p> -->
 
       <div class="testimonial-wrap">
         <div class="testimonial-track">

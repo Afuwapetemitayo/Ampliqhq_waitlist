@@ -11,6 +11,26 @@
   --brand-sub-orange: #ff9810;
   --brand-sub-blue: #4073ff;
   --brand-sub-green: #33ff9a;
+
+
+
+  --bg: #360255;
+  --bg-elev: #0f172a;
+  /* --bg-elev: #360255; */
+  --surface: #9f01f1;
+  --border: #c084fc;
+  --border-bright: #2A3345;
+  --text: #E8EBF0;
+  --text-dim: #8A93A5;
+  --text-muted: #555D70;
+  --neon: #9f01f1;
+  --neon-soft: #33ff9a;
+  --neon-dim: #4073ff;
+  --neon-glow: rgba(64, 115, 255, 0.18);
+  --accent: #C9D6FF;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter Tight', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
 }
 
 body {
