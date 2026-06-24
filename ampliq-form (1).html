@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AmpliQ - Waitlist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="form-style.css" /> 
+<style>
+  :root {
+      --brand-purple: #9f01f1;
+      --brand-dark: #360255;
+      --brand-accent: #f3c7fd;
+      --brand-sub-orange: #ff9810;
+      --brand-sub-blue: #4073ff;
+      --brand-sub-green: #33ff9a;
+      --surface: #0d0d1a;
+      --surface-card: #11111f;
+      --surface-input: #17172b;
+      --surface-input-focus: #1c1c35;
+      --border: rgba(159, 1, 241, 0.18);
+      --border-focus: rgba(159, 1, 241, 0.6);
+      --text-primary: #f8fafc;
+      --text-secondary: rgba(248, 250, 252, 0.55);
+      --text-muted: rgba(248, 250, 252, 0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Host Grotesk", sans-serif;
+      background-color: #020617;
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 20%, rgba(159,1,241,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 85% 75%, rgba(64,115,255,0.08) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      background: rgba(2, 6, 23, 0.75);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    .nav-logo-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--brand-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo-img {
+      height: 32px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .nav-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(159,1,241,0.15);
+      border: 1px solid rgba(159,1,241,0.35);
+      color: var(--brand-accent);
+      letter-spacing: 0.04em;
+       display: flex;
+  align-items: center;
+  gap: 8px;
+    }
+
+.pulse-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #ff6b6b;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+  }
+}
+    main {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      padding: 104px 1rem 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .form-stack {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      animation: stackIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes stackIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .form-header {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 32px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--brand-purple), var(--brand-sub-blue), var(--brand-accent));
+      border-radius: 16px 16px 0 0;
+    }
+    .form-header::after {
+      content: "";
+      position: absolute;
+      top: -60px; right: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(159,1,241,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .form-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-sub-green);
+      background: rgba(51,255,154,0.08);
+      border: 1px solid rgba(51,255,154,0.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+    .form-badge::before {
+      content: "";
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--brand-sub-green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.8); }
+    }
+    .form-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #f8fafc 40%, var(--brand-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .form-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .form-required-note {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .form-required-note span { color: #ff4d6d; }
+    .form-section {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      animation: stackIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .form-section:nth-child(2) { animation-delay: 0.06s; }
+    .form-section:nth-child(3) { animation-delay: 0.12s; }
+    .form-section:nth-child(4) { animation-delay: 0.18s; }
+    .form-section:nth-child(5) { animation-delay: 0.24s; }
+    .form-section:nth-child(6) { animation-delay: 0.30s; }
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-purple);
+      margin-bottom: -12px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .field-label {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      line-height: 1.5;
+    }
+    .field-label .req { color: #ff4d6d; font-size: 0.8rem; }
+    .field-hint {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: -4px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    select,
+    textarea {
+      width: 100%;
+      background: var(--surface-input);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-family: "Host Grotesk", sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: var(--text-muted); }
+    input:hover, select:hover, textarea:hover { border-color: rgba(159,1,241,0.35); }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--brand-purple);
+      background: var(--surface-input-focus);
+      box-shadow: 0 0 0 3px rgba(159,1,241,0.12);
+    }
+    textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+    .select-wrapper { position: relative; }
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 6px; height: 6px;
+      border-right: 2px solid var(--text-muted);
+      border-bottom: 2px solid var(--text-muted);
+      pointer-events: none;
+    }
+    select option { background: #17172b; color: var(--text-primary); }
+    .options-list { display: flex; flex-direction: column; gap: 10px; }
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--surface-input);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      user-select: none;
+    }
+    .option-item:hover {
+      border-color: rgba(159,1,241,0.4);
+      background: var(--surface-input-focus);
+    }
+    .option-item input[type="radio"],
+    .option-item input[type="checkbox"] {
+      width: 18px; height: 18px;
+      min-width: 18px; min-height: 18px;
+      padding: 0;
+      border: 1.5px solid rgba(159,1,241,0.4);
+      background: transparent;
+      cursor: pointer;
+      accent-color: var(--brand-purple);
+    }
+    .option-item input[type="radio"] { border-radius: 50%; }
+    .option-item:has(input:checked) {
+      border-color: rgba(159,1,241,0.6);
+      background: rgba(159,1,241,0.07);
+    }
+    .option-text { font-size: 0.88rem; color: var(--text-primary); }
+
+    /* "Other" text reveal */
+    .other-input {
+      display: none;
+      margin-top: 8px;
+      width: 100%;
+    }
+    .other-input.visible { display: block; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 10px;
+      background: var(--brand-purple);
+      border: none;
+      color: #fff;
+      font-family: "Host Grotesk", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-submit::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .btn-submit:hover {
+      background: #8700d4;
+      box-shadow: 0 0 24px rgba(159,1,241,0.4);
+      transform: translateY(-1px);
+    }
+    .btn-submit:hover::before { opacity: 1; }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit svg { transition: transform 0.2s; }
+    .btn-submit:hover svg { transform: translateX(3px); }
+    .btn-clear {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: "Host Grotesk", sans-serif;
+      font-size: 0.82rem;
+      cursor: pointer;
+      padding: 8px 0;
+      transition: color 0.2s;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+    }
+    .btn-clear:hover { color: var(--text-secondary); text-decoration-color: var(--text-secondary); }
+    .form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .progress-bar-wrap {
+      width: 100%;
+      max-width: 640px;
+      margin-bottom: 8px;
+    }
+    .progress-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .progress-track {
+      height: 3px;
+      background: rgba(159,1,241,0.12);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--brand-purple), var(--brand-sub-blue));
+      border-radius: 999px;
+      transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .success-card {
+      display: none;
+      background: var(--surface-card);
+      border: 1px solid rgba(51,255,154,0.2);
+      border-radius: 16px;
+      padding: 48px 32px;
+      text-align: center;
+      gap: 16px;
+      flex-direction: column;
+      align-items: center;
+    }
+    .success-card.show { display: flex; }
+    .success-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(51,255,154,0.1);
+      border: 1px solid rgba(51,255,154,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    .success-title { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; }
+    .success-sub { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+    .float-orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatOrb 12s ease-in-out infinite;
+    }
+    .float-orb-1 {
+      width: 300px; height: 300px;
+      top: 10%; right: -100px;
+      background: radial-gradient(circle, rgba(64,115,255,0.06) 0%, transparent 70%);
+    }
+    .float-orb-2 {
+      width: 200px; height: 200px;
+      bottom: 15%; left: -60px;
+      background: radial-gradient(circle, rgba(255,152,16,0.05) 0%, transparent 70%);
+      animation-delay: -5s;
+    }
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-30px); }
+    }
+    .page-footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+    .page-footer a { color: var(--brand-purple); text-decoration: none; }
+    .error-msg {
+      font-size: 0.75rem;
+      color: #ff4d6d;
+      display: none;
+    }
+    .field.has-error input,
+    .field.has-error textarea {
+      border-color: #ff4d6d;
+      box-shadow: 0 0 0 3px rgba(255,77,109,0.12);
+    }
+    .field.has-error .error-msg { display: block; }
+    @media (max-width: 680px) {
+      .form-header, .form-section { padding: 24px 20px; }
+      .form-title { font-size: 1.4rem; }
+      nav { padding: 0 1rem; }
+    }
+    
+</style>
+</head>
+<body>
+
+  <div class="float-orb float-orb-1"></div>
+  <div class="float-orb float-orb-2"></div>
+
+  <nav>
+    <a class="nav-logo" href="https://ampliqhq.com">
+      <div class="logo-container">
+          <img
+            src="./_Group_.png"
+            alt="AmpliQ Logo"
+            class="logo-img"
+          />
+        </div>
+    </a>
+    <div class="nav-pill">
+      <span class="pulse-indicator"></span>
+      Waitlist Open</div>
+  </nav>
+
+  <main>
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span>Form progress</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="form-stack" id="form-stack">
+
+      <!-- HEADER -->
+      <div class="form-header">
+        <div class="form-badge">Web Waitlist</div>
+        <h1 class="form-title">AmplIQ Waitlist</h1>
+        <p class="form-desc">
+          Join the biggest purpose-driven ecosystem in Africa helping freelancers and creatives build sustainable tech careers —
+          with community, guided learning, and real business systems.
+        </p>
+        <div class="form-required-note"><span>*</span> Indicates required question</div>
+      </div>
+
+      <!-- SECTION 1: CONTACT -->
+      <div class="form-section">
+        <div class="section-label">01 — Contact</div>
+
+        <div class="field" id="field-name">
+          <label class="field-label" for="name">Name <span class="req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Your answer" autocomplete="name" />
+          <span class="error-msg">This field is required.</span>
+        </div>
+
+        <div class="field" id="field-email">
+          <label class="field-label" for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="Your answer" autocomplete="email" />
+          <span class="error-msg">Please enter a valid email address.</span>
+        </div>
+
+        <div class="field" id="field-phone">
+          <label class="field-label" for="phone">Phone Number <span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="Your answer" autocomplete="tel" />
+          <span class="error-msg">This field is required.</span>
+        </div>
+      </div>
+
+      <!-- SECTION 2: PROFILE -->
+      <div class="form-section">
+        <div class="section-label">02 — Your Profile</div>
+
+        <div class="field" id="field-describe">
+          <label class="field-label">What best describes you right now? <span class="req">*</span></label>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="describe" value="Freelancer" />
+              <span class="option-text">Freelancer</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="describe" value="Creative professional" />
+              <span class="option-text">Creative professional</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="describe" value="Tech professional" />
+              <span class="option-text">Tech professional</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="describe" value="Student / aspiring freelancer" />
+              <span class="option-text">Student / aspiring freelancer</span>
+            </label>
+            <label class="option-item" id="describe-other-wrap">
+              <input type="radio" name="describe" value="other-describe" />
+              <span class="option-text">Other</span>
+            </label>
+            <input type="text" class="other-input" id="describe-other-text" placeholder="Please specify..." />
+          </div>
+          <span class="error-msg">Please select an option.</span>
+        </div>
+
+        <div class="field" id="field-field">
+          <label class="field-label">What is your primary field? <span class="req">*</span></label>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="primaryfield" value="Design" />
+              <span class="option-text">Design</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="primaryfield" value="Development" />
+              <span class="option-text">Development</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="primaryfield" value="Writing / Content" />
+              <span class="option-text">Writing / Content</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="primaryfield" value="Video / Media" />
+              <span class="option-text">Video / Media</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="primaryfield" value="Marketing" />
+              <span class="option-text">Marketing</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="primaryfield" value="Product / UX" />
+              <span class="option-text">Product / UX</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="primaryfield" value="other-field" />
+              <span class="option-text">Other</span>
+            </label>
+            <input type="text" class="other-input" id="field-other-text" placeholder="Please specify..." />
+          </div>
+          <span class="error-msg">Please select an option.</span>
+        </div>
+
+        <div class="field" id="field-experience">
+          <label class="field-label">How long have you been freelancing or working independently? <span class="req">*</span></label>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="experience" value="Just starting out" />
+              <span class="option-text">Just starting out</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="experience" value="Less than 1 year" />
+              <span class="option-text">Less than 1 year</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="experience" value="1–3 years" />
+              <span class="option-text">1–3 years</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="experience" value="3–5 years" />
+              <span class="option-text">3–5 years</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="experience" value="5+ years" />
+              <span class="option-text">5+ years</span>
+            </label>
+          </div>
+          <span class="error-msg">Please select an option.</span>
+        </div>
+      </div>
+
+      <!-- SECTION 3: STRUGGLES -->
+      <div class="form-section">
+        <div class="section-label">03 — Struggles & Systems</div>
+
+        <div class="field" id="field-struggles">
+          <label class="field-label">What are your biggest struggles right now? <span class="req">*</span></label>
+          <p class="field-hint">Select all that apply</p>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="checkbox" name="struggles" value="Getting quality clients" />
+              <span class="option-text">Getting quality clients</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="struggles" value="Pricing my services" />
+              <span class="option-text">Pricing my services</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="struggles" value="Pitching & writing proposals" />
+              <span class="option-text">Pitching &amp; writing proposals</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="struggles" value="Managing clients & projects" />
+              <span class="option-text">Managing clients &amp; projects</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="struggles" value="Inconsistent income" />
+              <span class="option-text">Inconsistent income</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="struggles" value="Lack of structure or systems" />
+              <span class="option-text">Lack of structure or systems</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="struggles" value="Burnout / overwhelm" />
+              <span class="option-text">Burnout / overwhelm</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="struggles" value="Lack of clarity or direction" />
+              <span class="option-text">Lack of clarity or direction</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="struggles" value="other-struggle" id="struggle-other-checkbox-wrap" />
+              <span class="option-text">Other</span>
+            </label>
+            <input type="text" class="other-input" id="struggle-other-text" placeholder="Please specify..." />
+          </div>
+          <span class="error-msg">Please select at least one option.</span>
+        </div>
+
+        <div class="field" id="field-manage">
+          <label class="field-label">How do you currently manage your freelance work? <span class="req">*</span></label>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="manage" value="No clear system" />
+              <span class="option-text">No clear system (everything is scattered)</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="manage" value="WhatsApp / Notes / Google Docs" />
+              <span class="option-text">WhatsApp / Notes / Google Docs</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="manage" value="Spreadsheets" />
+              <span class="option-text">Spreadsheets</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="manage" value="Notion" />
+              <span class="option-text">Notion</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="manage" value="Paid tools" />
+              <span class="option-text">Paid tools</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="manage" value="A mix of everything" />
+              <span class="option-text">A mix of everything</span>
+            </label>
+          </div>
+          <span class="error-msg">Please select an option.</span>
+        </div>
+      </div>
+
+      <!-- SECTION 4: VALUE & NEEDS -->
+      <div class="form-section">
+        <div class="section-label">04 — Value &amp; Needs</div>
+
+        <div class="field" id="field-value">
+          <label class="field-label">
+            If a platform existed that helped you learn, manage clients, pitch confidently, and run your freelance work professionally, how valuable would that be to you?
+            <span class="req">*</span>
+          </label>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="value" value="Extremely valuable" />
+              <span class="option-text">Extremely valuable</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="value" value="Somewhat valuable" />
+              <span class="option-text">Somewhat valuable</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="value" value="Not sure" />
+              <span class="option-text">Not sure</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="value" value="Not valuable" />
+              <span class="option-text">Not valuable</span>
+            </label>
+          </div>
+          <span class="error-msg">Please select an option.</span>
+        </div>
+
+        <div class="field" id="field-useful">
+          <label class="field-label">Which of these would you find MOST useful right now? <span class="req">*</span></label>
+          <p class="field-hint">Select all that apply</p>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="checkbox" name="useful" value="Freelance business templates" />
+              <span class="option-text">Freelance business templates</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="useful" value="Pitching & proposal systems" />
+              <span class="option-text">Pitching &amp; proposal systems</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="useful" value="Client management dashboards" />
+              <span class="option-text">Client management dashboards</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="useful" value="Structured learning paths" />
+              <span class="option-text">Structured learning paths</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="useful" value="Mentor guidance" />
+              <span class="option-text">Mentor guidance</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="useful" value="Community & accountability" />
+              <span class="option-text">Community &amp; accountability</span>
+            </label>
+            <label class="option-item">
+              <input type="checkbox" name="useful" value="Automation & productivity tools" />
+              <span class="option-text">Automation &amp; productivity tools</span>
+            </label>
+          </div>
+          <span class="error-msg">Please select at least one option.</span>
+        </div>
+
+        <div class="field" id="field-pay">
+          <label class="field-label">Would you pay for a system that helps you run your freelance career like a real business? <span class="req">*</span></label>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="pay" value="Yes" />
+              <span class="option-text">Yes</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="pay" value="No" />
+              <span class="option-text">No</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="pay" value="Maybe" />
+              <span class="option-text">Maybe</span>
+            </label>
+          </div>
+          <span class="error-msg">Please select an option.</span>
+        </div>
+      </div>
+
+      <!-- SECTION 5: VISION -->
+      <div class="form-section">
+        <div class="section-label">05 — Your Vision</div>
+
+        <div class="field" id="field-success">
+          <label class="field-label">What would success look like for you if AMPLiQ worked perfectly? <span class="req">*</span></label>
+          <textarea id="success" name="success" placeholder="Your answer"></textarea>
+          <span class="error-msg">This field is required.</span>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Would you like early access to AMPLiQ when it launches?</label>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="earlyaccess" value="Yes, I want early access" />
+              <span class="option-text">Yes, I want early access</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="earlyaccess" value="Maybe" />
+              <span class="option-text">Maybe</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="earlyaccess" value="No" />
+              <span class="option-text">No</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field" id="field-community">
+          <label class="field-label">Would you be interested in joining a community of freelancers building together? <span class="req">*</span></label>
+          <div class="options-list">
+            <label class="option-item">
+              <input type="radio" name="community" value="Yes" />
+              <span class="option-text">Yes</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="community" value="No" />
+              <span class="option-text">No</span>
+            </label>
+            <label class="option-item">
+              <input type="radio" name="community" value="Maybe" />
+              <span class="option-text">Maybe</span>
+            </label>
+          </div>
+          <span class="error-msg">Please select an option.</span>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="form-section" style="padding: 24px 32px;">
+        <p id="submit-error" style="display:none; font-size:0.8rem; color:#ff4d6d; margin-bottom:4px;"></p>
+        <div class="form-footer">
+          <button type="button" class="btn-submit" id="btn-submit">
+            Submit
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button type="button" class="btn-clear" id="btn-clear">Clear form</button>
+        </div>
+      </div>
+
+    </div><!-- /.form-stack -->
+
+    <!-- SUCCESS -->
+    <div class="form-stack">
+      <div class="success-card" id="success-card">
+        <div class="success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M5 13L9 17L19 7" stroke="#33ff9a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2 class="success-title">You're on the list 🎉</h2>
+        <p class="success-sub">
+          Your response has been recorded. We'll reach out before launch with early community access and free Vault resources. Keep building.
+        </p>
+        <a href="https://ampliqhq.com" style="margin-top:8px; font-size:0.85rem; color: var(--brand-purple); text-decoration:none; font-weight:500;">← Back to ampliqhq.com</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="page-footer">
+    © <span id="year"></span> <a href="https://ampliqhq.com">AmpliQ</a>. All rights reserved. &nbsp;·&nbsp; Purpose-driven. Africa-built.
+  </footer>
+
+  <script>
+    const WEB3FORMS_KEY = '72e1b28e-a844-4beb-8b14-d7b78ff73e18';
+    const THANK_YOU_URL = 'https://www.ampliqhq.com/thank-you.html';
+
+    /* ── OTHER FIELD REVEAL ── */
+    function setupOtherReveal(radioName, otherValue, inputEl) {
+      document.querySelectorAll(`input[name="${radioName}"]`).forEach(r => {
+        r.addEventListener('change', () => {
+          inputEl.classList.toggle('visible', r.value === otherValue && r.checked);
+        });
+      });
+    }
+
+    setupOtherReveal('describe',     'other-describe', document.getElementById('describe-other-text'));
+    setupOtherReveal('primaryfield', 'other-field',    document.getElementById('field-other-text'));
+
+    const struggleOtherCb  = document.querySelector('input[name="struggles"][value="other-struggle"]');
+    const struggleOtherTxt = document.getElementById('struggle-other-text');
+    struggleOtherCb.addEventListener('change', () => {
+      struggleOtherTxt.classList.toggle('visible', struggleOtherCb.checked);
+    });
+
+    /* ── PROGRESS ── */
+    const REQUIRED_FIELDS = [
+      () => document.getElementById('name').value.trim() !== '',
+      () => { const v = document.getElementById('email').value.trim(); return v !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); },
+      () => document.getElementById('phone').value.trim() !== '',
+      () => !!document.querySelector('input[name="describe"]:checked'),
+      () => !!document.querySelector('input[name="primaryfield"]:checked'),
+      () => !!document.querySelector('input[name="experience"]:checked'),
+      () => !!document.querySelector('input[name="struggles"]:checked'),
+      () => !!document.querySelector('input[name="manage"]:checked'),
+      () => !!document.querySelector('input[name="value"]:checked'),
+      () => !!document.querySelector('input[name="useful"]:checked'),
+      () => !!document.querySelector('input[name="pay"]:checked'),
+      () => document.getElementById('success').value.trim() !== '',
+      () => !!document.querySelector('input[name="community"]:checked'),
+    ];
+
+    function updateProgress() {
+      const filled = REQUIRED_FIELDS.filter(fn => fn()).length;
+      const pct = Math.round((filled / REQUIRED_FIELDS.length) * 100);
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-pct').textContent = pct + '%';
+    }
+
+    document.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', updateProgress);
+      el.addEventListener('change', updateProgress);
+    });
+
+    /* ── VALIDATION ── */
+    const VALIDATIONS = [
+      { fieldId: 'field-name',       check: () => document.getElementById('name').value.trim() !== '' },
+      { fieldId: 'field-email',      check: () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('email').value.trim()) },
+      { fieldId: 'field-phone',      check: () => document.getElementById('phone').value.trim() !== '' },
+      { fieldId: 'field-describe',   check: () => !!document.querySelector('input[name="describe"]:checked') },
+      { fieldId: 'field-field',      check: () => !!document.querySelector('input[name="primaryfield"]:checked') },
+      { fieldId: 'field-experience', check: () => !!document.querySelector('input[name="experience"]:checked') },
+      { fieldId: 'field-struggles',  check: () => !!document.querySelector('input[name="struggles"]:checked') },
+      { fieldId: 'field-manage',     check: () => !!document.querySelector('input[name="manage"]:checked') },
+      { fieldId: 'field-value',      check: () => !!document.querySelector('input[name="value"]:checked') },
+      { fieldId: 'field-useful',     check: () => !!document.querySelector('input[name="useful"]:checked') },
+      { fieldId: 'field-pay',        check: () => !!document.querySelector('input[name="pay"]:checked') },
+      { fieldId: 'field-success',    check: () => document.getElementById('success').value.trim() !== '' },
+      { fieldId: 'field-community',  check: () => !!document.querySelector('input[name="community"]:checked') },
+    ];
+
+    /* ── COLLECT FORM DATA ── */
+    function collectData() {
+      // Multi-select helpers
+      const checked = (name) =>
+        [...document.querySelectorAll(`input[name="${name}"]:checked`)]
+          .map(el => el.value).join(', ');
+
+      // "Other" text resolution for radio fields
+      const resolveRadio = (name, otherValue, otherInputId) => {
+        const sel = document.querySelector(`input[name="${name}"]:checked`);
+        if (!sel) return '';
+        if (sel.value === otherValue) {
+          const txt = document.getElementById(otherInputId).value.trim();
+          return txt ? `Other: ${txt}` : 'Other';
+        }
+        return sel.value;
+      };
+
+      // Struggles may include "other-struggle" — swap it with the typed value
+      const struggles = [...document.querySelectorAll('input[name="struggles"]:checked')]
+        .map(el => {
+          if (el.value === 'other-struggle') {
+            const txt = document.getElementById('struggle-other-text').value.trim();
+            return txt ? `Other: ${txt}` : 'Other';
+          }
+          return el.value;
+        }).join(', ');
+
+      return {
+        access_key:   WEB3FORMS_KEY,
+        subject:      'New AmpliQ Waitlist Submission',
+        from_name:    'AmpliQ Waitlist Form',
+        name:         document.getElementById('name').value.trim(),
+        email:        document.getElementById('email').value.trim(),
+        phone:        document.getElementById('phone').value.trim(),
+        describe:     resolveRadio('describe', 'other-describe', 'describe-other-text'),
+        primary_field:resolveRadio('primaryfield', 'other-field', 'field-other-text'),
+        experience:   document.querySelector('input[name="experience"]:checked')?.value || '',
+        struggles,
+        manage:       document.querySelector('input[name="manage"]:checked')?.value || '',
+        platform_value: document.querySelector('input[name="value"]:checked')?.value || '',
+        most_useful:  checked('useful'),
+        would_pay:    document.querySelector('input[name="pay"]:checked')?.value || '',
+        success_vision: document.getElementById('success').value.trim(),
+        early_access: document.querySelector('input[name="earlyaccess"]:checked')?.value || 'Not answered',
+        community:    document.querySelector('input[name="community"]:checked')?.value || '',
+      };
+    }
+
+    /* ── SUBMIT ── */
+    document.getElementById('btn-submit').addEventListener('click', async () => {
+      /* 1. Validate */
+      let firstError = null;
+      let allValid = true;
+
+      VALIDATIONS.forEach(({ fieldId, check }) => {
+        const el = document.getElementById(fieldId);
+        if (!check()) {
+          el.classList.add('has-error');
+          allValid = false;
+          if (!firstError) firstError = el;
+          el.querySelectorAll('input, textarea').forEach(inp => {
+            inp.addEventListener('input',  () => el.classList.remove('has-error'), { once: true });
+            inp.addEventListener('change', () => el.classList.remove('has-error'), { once: true });
+          });
+        } else {
+          el.classList.remove('has-error');
+        }
+      });
+
+      if (!allValid) {
+        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      /* 2. Lock button while sending */
+      const btn = document.getElementById('btn-submit');
+      btn.disabled = true;
+      btn.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="animation:spin 0.8s linear infinite">
+          <circle cx="8" cy="8" r="6" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <path d="M8 2a6 6 0 0 1 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Sending…`;
+
+      /* 3. POST to Web3Forms */
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(collectData()),
+        });
+
+        const json = await res.json();
+
+        if (res.ok && json.success) {
+          /* 4. Update progress bar then show inline thank-you card */
+          document.getElementById('progress-fill').style.width = '100%';
+          document.getElementById('progress-pct').textContent = '100%';
+          document.getElementById('form-stack').style.display = 'none';
+          document.getElementById('success-card').classList.add('show');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error(json.message || 'Submission failed');
+        }
+      } catch (err) {
+        /* 5. Error state — unlock button and show message */
+        btn.disabled = false;
+        btn.innerHTML = `Submit
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>`;
+
+        const errEl = document.getElementById('submit-error');
+        errEl.textContent = 'Something went wrong. Please check your connection and try again.';
+        errEl.style.display = 'block';
+        setTimeout(() => errEl.style.display = 'none', 6000);
+      }
+    });
+
+    /* ── CLEAR ── */
+    document.getElementById('btn-clear').addEventListener('click', () => {
+      if (!confirm('Clear all answers? This cannot be undone.')) return;
+      document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea').forEach(el => el.value = '');
+      document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el => el.checked = false);
+      document.querySelectorAll('.other-input').forEach(el => el.classList.remove('visible'));
+      document.querySelectorAll('.field').forEach(el => el.classList.remove('has-error'));
+      updateProgress();
+    });
+
+    /* ── SPINNER KEYFRAME (injected once) ── */
+    const style = document.createElement('style');
+    style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+    document.head.appendChild(style);
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -5,7 +5,7 @@
   --brand-dark: #0f172a;
   --brand-accent: #c084fc; */
   --brand-purple: #9f01f1;
-  --brand-purple2: #7703b1;
+  --brand-purple2: #500376;
   --brand-dark: #360255;
   --brand-accent: #f3c7fd;
   --brand-sub-orange: #ff9810;
@@ -23,6 +23,9 @@ body {
 .body-gradient {
   background: linear-gradient(to bottom right, var(--brand-purple), var(--brand-dark), var(--brand-sub-blue));
 }
+/* .body-gradients {
+  background: linear-gradient(to bottom right, var(--brand-purple), var(--brand-dark));
+} */
 
 .glass-nav {
   /* background: rgba(2, 6, 23, 0.7); */
@@ -83,9 +86,10 @@ body {
 }
 
 .waitlist-card {
-  /* background-color: #360255; */
-  background: linear-gradient(to bottom right, var(--brand-purple2), var(--brand-dark));
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background-color: #360255;
+  /* background: linear-gradient(to bottom right, var(--brand-purple), var(--brand-dark)); */
+  background: linear-gradient(to bottom right, var(--brand-dark), var(--brand-dark), var(--brand-sub-blue));
+  border: 1px solid rgba(177, 150, 239, 0.47);
 }
 
 .custom-cursor {
