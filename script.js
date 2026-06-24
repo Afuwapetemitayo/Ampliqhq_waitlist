@@ -83,7 +83,7 @@ if (form) {
           status.innerHTML =
             "<span class='text-indigo-400 font-semibold'>Success! Redirecting...</span>";
           setTimeout(() => {
-            window.location.href = "./thank-you.html";
+            window.location.href = "./ampliq-form.html";
           }, 1500);
         } else {
           response.json().then((data) => {

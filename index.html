@@ -53,6 +53,104 @@
       rel="stylesheet"
     />
     <style>
+
+
+
+.testimonial-wrap {
+      overflow: hidden;
+      margin-top: 60px;
+      position: relative;
+      -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+              mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+    }
+    .testimonial-track {
+      display: flex;
+      gap: 18px;
+      animation: slide 75s linear infinite;
+      width: max-content;
+    }
+    .testimonial-wrap:hover .testimonial-track { animation-play-state: paused; }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .testimonial {
+      flex-shrink: 0;
+      width: 340px;
+      padding: 24px;
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      position: relative;
+      display: flex; flex-direction: column;
+      min-height: 320px;
+    }
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 8px; right: 20px;
+      font-family: var(--serif);
+      font-size: 64px; line-height: 1;
+      color: var(--neon);
+      opacity: 0.22;
+    }
+    .testimonial-quote {
+      font-family: var(--serif);
+      font-size: 14.5px;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      font-weight: 300;
+      flex-grow: 1;
+    }
+    .testimonial-footer {
+      display: flex; align-items: center; gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .t-avatar {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--neon-dim);
+    }
+    .t-meta { flex-grow: 1; min-width: 0; }
+    .t-meta strong {
+      display: block; color: var(--text);
+      font-size: 13px; font-weight: 500;
+      line-height: 1.2; margin-bottom: 4px;
+    }
+    .t-skill {
+      font-family: var(--mono); font-size: 9.5px;
+      color: var(--neon-soft); letter-spacing: 0.05em;
+      text-transform: uppercase; margin-bottom: 2px;
+      display: block;
+    }
+    .t-location {
+      color: var(--text-muted);
+      font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 5px;
+      text-transform: uppercase;
+    }
+    .flag { display: inline-block; font-size: 11px; line-height: 1; }
+    .t-connect {
+      background: var(--neon-glow);
+      border: 1px solid var(--neon-dim);
+      color: var(--neon-soft);
+      padding: 7px 11px;
+      border-radius: 20px;
+      font-family: var(--mono); font-size: 9.5px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 4px;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .t-connect:hover { background: var(--neon); color: #fff; border-color: var(--neon); }
+
+    
     .marquee-container {
   overflow: hidden;
   white-space: nowrap;
@@ -113,6 +211,7 @@
         >
           <a href="#about" class="hover:text-white transition-colors">About</a>
           <a href="#ecosystem" class="hover:text-white transition-colors">Ecosystem</a>
+          <a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a>
           <!-- <a href="#waitlist" class="hover:text-white transition-colors"
             >Waitlist</a
           > -->
@@ -156,6 +255,12 @@
           class="block text-slate-300 hover:text-white transition-colors py-2 text-sm font-medium"
           >
           Ecosystem
+        </a>
+          <a
+          href="#testimonials"
+          class="block text-slate-300 hover:text-white transition-colors py-2 text-sm font-medium"
+          >
+          Testimonials
         </a>
         
 
@@ -430,6 +535,309 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Testimonial Section -->
+    <section id="testimonials" class="pb-16 px-6">
+      <div class="section-tag">05 · What Others Say</div>
+      <h2 class="section-title">From mentees who've <em>installed the system.</em></h2>
+      <p class="section-lead">Voices from current community members, layer masters, and mentees.</p>
+
+      <div class="testimonial-wrap">
+        <div class="testimonial-track">
+
+          <!-- 1. Eniola Ayuba -->
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ didn't just hand me resources; it rewired how I operate as a freelancer. The systems, the community, the templates, they built structure into my career to the peak. I would choose AmpliQ over and over again.</div>
+            <div class="testimonial-footer">
+              <img src="images/Eniola Ayuba.png" alt="Eniola Ayuba" class="t-avatar">
+              <div class="t-meta">
+                <strong>Eniola Ayuba</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Lagos, Nigeria</span>
+              </div>
+              <a href="https://wa.link/pm1zc5" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 2. Adoga Handsome -->
+          <div class="testimonial">
+            <div class="testimonial-quote">Being part of Sir Mandy's community has been a turning point for me. The value, clarity, and practical teaching sharpened my design skills massively. I've grown professionally, attracted higher-paying clients, and built real confidence. It's been a journey of consistent growth and undeniable progress.</div>
+            <div class="testimonial-footer">
+              <img src="images/Adoga Handsome E.png" alt="Adoga Handsome" class="t-avatar">
+              <div class="t-meta">
+                <strong>Adoga Handsome</strong>
+                <span class="t-skill">Social Media Manager</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Benin City, Nigeria</span>
+              </div>
+              <a href="https://wa.link/jj0dz4" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 3. Abdulquadr Saka -->
+          <div class="testimonial">
+            <div class="testimonial-quote">I joined AmpliQ in november 2024 as a birthday gift to myself, back when when it was Design Guide Cohort. Inspired by Sir Mandy's generousity and insights, I've experienced real growth, gaining rare value, strengthening my leadership and improving my journey as a freelancer.</div>
+            <div class="testimonial-footer">
+              <img src="images/Abdulquadri T. Saka.png" alt="Abdulquadr T. Saka" class="t-avatar">
+              <div class="t-meta">
+                <strong>Abdulquadr T. Saka</strong>
+                <span class="t-skill">Brand Identity Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Lagos, Nigeria</span>
+              </div>
+              <a href="https://wa.link/2u6mxw" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 4. Ilochukwu Jennifer -->
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ has been a key driver in my development as a designer. It sharpened my design thinking, improved clarity in visual communication, and boosted my productivity. More importantly, it redefined my approach to design as a business, including positioning, client acquisition, and value communication.</div>
+            <div class="testimonial-footer">
+              <img src="images/ILOCHUKWU JENNIFER CHISOM.png" alt="Ilochukwu Jennifer" class="t-avatar">
+              <div class="t-meta">
+                <strong>Ilochukwu Jennifer Chisom</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Anambra, Nigeria</span>
+              </div>
+              <a href="https://wa.link/hjsr7d" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 5. Eddie Glorious -->
+          <div class="testimonial">
+            <div class="testimonial-quote">Mandy's completely shifted how I think about positioning my skills online. As a designer and accountant building digital products, I finally had a clear framework for freelancing with intention. If you're serious about turning your skills into income, this is the room to be in.</div>
+            <div class="testimonial-footer">
+              <img src="images/Eddie Glorious Sogi .png" alt="Eddie Glorious" class="t-avatar">
+              <div class="t-meta">
+                <strong>Eddie Glorious</strong>
+                <span class="t-skill">Digital Product Builder</span>
+                <span class="t-location"><span class="flag">🇨🇲</span> Cameroon</span>
+              </div>
+              <a href="https://wa.link/j2nzma" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 6. Gabriel Ikenna -->
+          <div class="testimonial">
+            <div class="testimonial-quote">Mandy is an exceptional person. He teaches with much clarity and breaks things down to the barest minimum. I started to see design as a business through him. That mindset switch changed my approach and helped me charge confidently now.</div>
+            <div class="testimonial-footer">
+              <img src="images/GABRIEL IKENNA.png" alt="Gabriel Ikenna" class="t-avatar">
+              <div class="t-meta">
+                <strong>Gabriel Ikenna</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Lagos, Nigeria</span>
+              </div>
+              <a href="https://wa.link/p49kar" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 7. Caleb Batala -->
+          <div class="testimonial">
+            <div class="testimonial-quote">Finding Mandy Chinedum changed everything for me. His consistency, clarity, and humility in AmpliQ have genuinely shaped my growth and how I see my creative journey today.</div>
+            <div class="testimonial-footer">
+              <img src="images/Caleb Batala-Lusaka, Zambia.jpg.png" alt="Caleb Batala" class="t-avatar">
+              <div class="t-meta">
+                <strong>Caleb Batala</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇿🇲</span> Lusaka, Zambia</span>
+              </div>
+              <a href="https://wa.link/7w6n7x" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 8. Cross Makele -->
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ has been far more than a design course. Over the past two years, it has shaped my skills in design, business, marketing, values, and financial growth. It taught me not just how to create, but how to think, build value, and turn creativity into real opportunities.</div>
+            <div class="testimonial-footer">
+              <img src="images/Cross Makele.png" alt="Cross Makele" class="t-avatar">
+              <div class="t-meta">
+                <strong>Cross Makele</strong>
+                <span class="t-skill">Motion Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Port Harcourt, Nigeria</span>
+              </div>
+              <a href="https://wa.link/19fioi" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 9. Rasaq Micheal -->
+          <div class="testimonial">
+            <div class="testimonial-quote">I joined Layer Masters at the beginning of this year, and it has been a major breakthrough in my freelance journey as a motion designer. Everything I am learning under Mandy (AmpliQ) are insights I wouldn't have discovered even in five years, and the results I'm seeing now are beyond what I imagined my future self could achieve this early.</div>
+            <div class="testimonial-footer">
+              <img src="images/Rasaq Micheal.png" alt="Rasaq Micheal" class="t-avatar">
+              <div class="t-meta">
+                <strong>Rasaq Micheal</strong>
+                <span class="t-skill">Video Motion Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Lagos, Nigeria</span>
+              </div>
+              <a href="https://wa.link/cx2wvy" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 10. Temitayo Afuwape -->
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ gave me a clear, practical framework for running a sustainable freelance business. As a developer and creative, the insights were immediately applicable. This is the event every freelancer in Africa needs to attend.</div>
+            <div class="testimonial-footer">
+              <img src="images/Afuwape Temitayo.png" alt="Temitayo Afuwape" class="t-avatar">
+              <div class="t-meta">
+                <strong>Temitayo Afuwape</strong>
+                <span class="t-skill">Developer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Nigeria</span>
+              </div>
+              <a href="https://wa.me/2349156350646?text=Hi%20Afuwape%2C%20I%20found%20you%20via%20the%20FreelancersOs%20event%20website!" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- 11. Immanuel Princesalem -->
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ has completely streamlined my workflow; Mandy helped me with managing clients and projects. I thank God for the gift of him.</div>
+            <div class="testimonial-footer">
+              <img src="images/IMMANUEL PRINCESALEM.png" alt="Immanuel Princesalem" class="t-avatar">
+              <div class="t-meta">
+                <strong>Immanuel Princesalem</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇧🇯</span> Cotonou, Benin Rep.</span>
+              </div>
+              <a href="https://wa.link/7oudsf" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
+          <!-- Duplicates for seamless loop -->
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ didn't just hand me resources; it rewired how I operate as a freelancer. The systems, the community, the templates, they built structure into my career to the peak.</div>
+            <div class="testimonial-footer">
+              <img src="images/Eniola Ayuba.png" alt="Eniola Ayuba" class="t-avatar">
+              <div class="t-meta">
+                <strong>Eniola Ayuba</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Lagos, Nigeria</span>
+              </div>
+              <a href="https://wa.link/pm1zc5" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">Being part of Sir Mandy's community has been a turning point for me. The value, clarity, and practical teaching sharpened my design skills massively. I've grown professionally and attracted higher-paying clients.</div>
+            <div class="testimonial-footer">
+              <img src="images/Adoga Handsome E.png" alt="Adoga Handsome" class="t-avatar">
+              <div class="t-meta">
+                <strong>Adoga Handsome</strong>
+                <span class="t-skill">Social Media Manager</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Benin City, Nigeria</span>
+              </div>
+              <a href="https://wa.link/jj0dz4" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ didn't just hand me resources; it rewired how I operate as a freelancer. The systems, the community, the templates, they built structure into my career.</div>
+            <div class="testimonial-footer">
+              <img src="images/Abdulquadri T. Saka.png" alt="Abdulquadr T. Saka" class="t-avatar">
+              <div class="t-meta">
+                <strong>Abdulquadr T. Saka</strong>
+                <span class="t-skill">Brand Identity Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Lagos, Nigeria</span>
+              </div>
+              <a href="https://wa.link/2u6mxw" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ has been a key driver in my development as a designer. It sharpened my design thinking, improved clarity in visual communication, and boosted my productivity.</div>
+            <div class="testimonial-footer">
+              <img src="images/ILOCHUKWU JENNIFER CHISOM.png" alt="Ilochukwu Jennifer" class="t-avatar">
+              <div class="t-meta">
+                <strong>Ilochukwu Jennifer Chisom</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Anambra, Nigeria</span>
+              </div>
+              <a href="https://wa.link/hjsr7d" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">Mandy's completely shifted how I think about positioning my skills online. I finally had a clear framework for freelancing with intention.</div>
+            <div class="testimonial-footer">
+              <img src="images/Eddie Glorious Sogi .png" alt="Eddie Glorious" class="t-avatar">
+              <div class="t-meta">
+                <strong>Eddie Glorious</strong>
+                <span class="t-skill">Digital Product Builder</span>
+                <span class="t-location"><span class="flag">🇨🇲</span> Cameroon</span>
+              </div>
+              <a href="https://wa.link/j2nzma" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">Mandy is an exceptional person. He teaches with much clarity and breaks things down to the barest minimum. I started to see design as a business through him.</div>
+            <div class="testimonial-footer">
+              <img src="images/GABRIEL IKENNA.png" alt="Gabriel Ikenna" class="t-avatar">
+              <div class="t-meta">
+                <strong>Gabriel Ikenna</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Lagos, Nigeria</span>
+              </div>
+              <a href="https://wa.link/p49kar" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">Finding Mandy Chinedum changed everything for me. His consistency, clarity, and humility in AmpliQ have genuinely shaped my growth.</div>
+            <div class="testimonial-footer">
+              <img src="images/Caleb Batala-Lusaka, Zambia.jpg.png" alt="Caleb Batala" class="t-avatar">
+              <div class="t-meta">
+                <strong>Caleb Batala</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇿🇲</span> Lusaka, Zambia</span>
+              </div>
+              <a href="https://wa.link/7w6n7x" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ has been far more than a design course. Over the past two years, it has shaped my skills in design, business, marketing, values, and financial growth.</div>
+            <div class="testimonial-footer">
+              <img src="images/Cross Makele.png" alt="Cross Makele" class="t-avatar">
+              <div class="t-meta">
+                <strong>Cross Makele</strong>
+                <span class="t-skill">Motion Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Port Harcourt, Nigeria</span>
+              </div>
+              <a href="https://wa.link/19fioi" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">I joined Layer Masters at the beginning of this year, and it has been a major breakthrough in my freelance journey. The insights I'm getting are beyond what I imagined.</div>
+            <div class="testimonial-footer">
+              <img src="images/Rasaq Micheal.png" alt="Rasaq Micheal" class="t-avatar">
+              <div class="t-meta">
+                <strong>Rasaq Micheal</strong>
+                <span class="t-skill">Video Motion Designer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Lagos, Nigeria</span>
+              </div>
+              <a href="https://wa.link/cx2wvy" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ gave me a clear, practical framework for running a sustainable freelance business. This is the event every freelancer in Africa needs to attend.</div>
+            <div class="testimonial-footer">
+              <img src="images/Afuwape Temitayo.png" alt="Temitayo Afuwape" class="t-avatar">
+              <div class="t-meta">
+                <strong>Temitayo Afuwape</strong>
+                <span class="t-skill">Developer</span>
+                <span class="t-location"><span class="flag">🇳🇬</span> Nigeria</span>
+              </div>
+              <a href="https://wa.me/2349156350646?text=Hi%20Afuwape%2C%20I%20found%20you%20via%20the%20FreelancersOs%20event%20website!" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">AmpliQ has completely streamlined my workflow; Mandy helped me with managing clients and projects. I thank God for the gift of him.</div>
+            <div class="testimonial-footer">
+              <img src="images/IMMANUEL PRINCESALEM.png" alt="Immanuel Princesalem" class="t-avatar">
+              <div class="t-meta">
+                <strong>Immanuel Princesalem</strong>
+                <span class="t-skill">Brand Designer</span>
+                <span class="t-location"><span class="flag">🇧🇯</span> Cotonou, Benin Rep.</span>
+              </div>
+              <a href="https://wa.link/7oudsf" target="_blank" rel="noopener" class="t-connect">Connect</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

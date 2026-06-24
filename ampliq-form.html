@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AmpliQ - Waitlist</title>
+  <title>Ampliqhq - Waitlist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
@@ -54,9 +54,9 @@
       justify-content: space-between;
       padding: 0 2rem;
       height: 64px;
-      background: rgba(2, 6, 23, 0.75);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      background: #360255;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     .nav-logo {
       display: flex;
@@ -511,7 +511,7 @@
     <a class="nav-logo" href="https://ampliqhq.com">
       <div class="logo-container">
           <img
-            src="./_Group_.png"
+            src="./Assets/images/Asset 1.png"
             alt="AmpliQ Logo"
             class="logo-img"
           />
@@ -919,7 +919,7 @@
   </footer>
 
   <script>
-    const WEB3FORMS_KEY = '72e1b28e-a844-4beb-8b14-d7b78ff73e18';
+    const WEB3FORMS_KEY = '6afe0925-d959-4db5-9b81-908b0c019c30';
     const THANK_YOU_URL = 'https://www.ampliqhq.com/thank-you.html';
 
     /* ── OTHER FIELD REVEAL ── */
@@ -1085,9 +1085,7 @@
           /* 4. Update progress bar then show inline thank-you card */
           document.getElementById('progress-fill').style.width = '100%';
           document.getElementById('progress-pct').textContent = '100%';
-          document.getElementById('form-stack').style.display = 'none';
-          document.getElementById('success-card').classList.add('show');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.location.href = 'https://www.ampliqhq.com/thank-you.html';
         } else {
           throw new Error(json.message || 'Submission failed');
         }
